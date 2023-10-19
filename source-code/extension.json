@@ -1,0 +1,13 @@
+{
+    "module": "CustomAclLogicPoc",
+    "name": "Custom Acl Logic Poc",
+    "description": "Proof of concept for how to deploy custom acl logic in Espo.",
+    "author": "manhtq",
+    "bundled": false,
+    "acceptableVersions": [
+        ">=7.3.0"
+    ],
+    "php": [
+        ">=7.2"
+    ]
+}
