@@ -6,7 +6,7 @@
 
 ## Hướng triển khai chung
 - mở quyền thao tác với bản ghi là all và dùng hook, custom code ở backend để chặn các thao tác không được phép
-- team sẽ có thêm 1 trường là parent. **Bỏ cách này, áp dụng nested set** 
+- team sẽ có thêm 1 trường là parent. 
 - tạo role có quyền thao tác với mọi record của entity và gán cho User
 - User sẽ có thêm 1 trường là fullAccessRoles lưu các role full access ở trên
 - Viết hàm merge acl custom với đầu vào là các role loại trừ các role full access
