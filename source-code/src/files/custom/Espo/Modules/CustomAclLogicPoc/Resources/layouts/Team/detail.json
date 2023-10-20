@@ -1,0 +1,30 @@
+[{
+    "rows": [
+        [{
+                "name": "name"
+            },
+            null
+        ],
+        [{
+                "name": "positionList"
+            },
+            {
+                "name": "roles"
+            }
+        ],
+        [{
+                "name": "layoutSet"
+            },
+            {
+                "name": "workingTimeCalendar"
+            }
+        ],
+        [{
+                "name": "parent"
+            },
+            false
+        ]
+    ],
+    "style": "default",
+    "label": ""
+}]

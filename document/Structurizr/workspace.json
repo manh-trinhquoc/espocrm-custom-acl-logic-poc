@@ -2,7 +2,7 @@
   "id" : 1,
   "name" : "Espo Plugin",
   "description" : "Description",
-  "lastModifiedDate" : "2023-10-20T01:43:48Z",
+  "lastModifiedDate" : "2023-10-20T03:46:48Z",
   "properties" : {
     "structurizr.dsl" : "d29ya3NwYWNlICJFc3BvIFBsdWdpbiIgewogICAgIWFkcnMgZGVjaXNpb25zCiAgICAhZG9jcyBkb2N1bWVudHMKICAgIG1vZGVsIHsKICAgICAgICAKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgCgogICAgICAgIHRoZW1lIGRlZmF1bHQKCiAgICAgICAgLy8gdGhlbWVzIGh0dHBzOi8vc3RhdGljLnN0cnVjdHVyaXpyLmNvbS90aGVtZXMvbWljcm9zb2Z0LWF6dXJlLTIwMjEuMDEuMjYvdGhlbWUuanNvbgogICAgfQoKfQo="
   },
