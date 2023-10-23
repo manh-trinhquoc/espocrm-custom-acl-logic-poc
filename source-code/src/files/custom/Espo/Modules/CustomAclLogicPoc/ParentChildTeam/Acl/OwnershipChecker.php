@@ -47,6 +47,13 @@ class OwnershipChecker implements OwnershipOwnChecker, OwnershipTeamChecker
 
         $teamIds = [];
         $teams = $entity->getLinkMultipleIdList('teams');
+        $assignedUser = $entity->get('assignedUser');
+        if ($assignedUser != null) {
+            $assignedUserTeams = $assignedUser->getLinkMultipleIdList('teams');
+            $teams = array_merge($teams, $assignedUserTeams);
+            $teams = array_unique($teams);
+        }
+
         foreach($teams as $teamId) {
             $parentTeamIds = $this->teamUltis->getAllParentTeamsByTeam($teamId);
             array_push($teamIds, $teamId, ...$parentTeamIds);
