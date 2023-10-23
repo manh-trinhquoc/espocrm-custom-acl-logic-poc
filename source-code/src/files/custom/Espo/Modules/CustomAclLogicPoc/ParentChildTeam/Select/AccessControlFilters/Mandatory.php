@@ -34,7 +34,6 @@ class Mandatory implements Filter
             'select' => ['entityId'],
             'whereClause' => [
                 'teamId' => $teamIds,
-                'deleted' => 0,
             ],
         ]);
 
@@ -43,7 +42,6 @@ class Mandatory implements Filter
             'select' => ['userId'],
             'whereClause' => [
                 'teamId' => $teamIds,
-                'deleted' => 0,
             ],
         ]);
 
@@ -54,12 +52,15 @@ class Mandatory implements Filter
             Cond::in(Cond::column('assignedUserId'), $userSubQuery)
         ));
 
+
+        // debug
         // $entityManager = $this->entityManager;
         // $build = $queryBuilder->build();
         // $pdoStatement = $entityManager
         //     ->getQueryExecutor()
-        //     ->execute($subQuery);
-        // var_dump($subQuery->getWhere());
+        //     // ->execute($subQuery);
+        //     ->execute($build);
+        // // var_dump($subQuery->getWhere());
         // echo $pdoStatement->queryString;
         // die;
     }

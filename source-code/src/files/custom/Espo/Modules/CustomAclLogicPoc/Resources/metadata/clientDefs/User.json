@@ -108,6 +108,9 @@
             "rowActionsView": "crm:views/record/row-actions/relationship-target",
             "layout": "listForTarget",
             "view": "crm:views/record/panels/target-lists"
+        },
+        "fullAccessRoles": {
+            "layout": null
         }
     },
     "layoutDefaultSidePanelDisabled": true,
