@@ -22,6 +22,7 @@
 }
 ```
 - Khai báo custom access checker để chặn truy cập detail. Không dùng được ownership checker vì sẽ bị skip
+- Thử tìm hiểu accesscontrolfilterresolverclassname https://docs.espocrm.com/development/metadata/select-defs/#accesscontrolfilterresolverclassname
 
 ### Hướng 2
 - triển khai riêng cho từng Entity cần thiết

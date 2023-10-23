@@ -1,3 +1,4 @@
 {
+    "accessCheckerClassName": "Espo\\Modules\\CustomAclLogicPoc\\ParentChildTeam\\Acl\\AccessChecker",
     "ownershipCheckerClassName": "Espo\\Modules\\CustomAclLogicPoc\\ParentChildTeam\\Acl\\OwnershipChecker"
 }
