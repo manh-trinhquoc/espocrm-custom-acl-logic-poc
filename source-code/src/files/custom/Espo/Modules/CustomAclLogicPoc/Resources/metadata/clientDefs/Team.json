@@ -4,7 +4,7 @@
         "parent": {
             "layout": null
         },
-        "teams": {
+        "childTeams": {
             "layout": null
         }
     }

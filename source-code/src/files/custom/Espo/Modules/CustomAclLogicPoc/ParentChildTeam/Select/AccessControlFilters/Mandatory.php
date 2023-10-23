@@ -9,11 +9,12 @@ use Espo\ORM\Query\Part\Condition as Cond;
 use Espo\Core\Select\AccessControl\Filter;
 
 use Espo\Entities\User;
+use Espo\Modules\CustomAclLogicPoc\ParentChildTeam\Classes\TeamUltis;
 use Espo\ORM\EntityManager;
 
 class Mandatory implements Filter
 {
-    public function __construct(private User $user, private EntityManager $entityManager)
+    public function __construct(private User $user, private EntityManager $entityManager, private TeamUltis $teamUltis)
     {
     }
 
@@ -25,22 +26,32 @@ class Mandatory implements Filter
 
         $currentUserId = $this->user->getId();
 
-        // $queryBuilder->where([
-        //     'assignedUserId' => $this->user->getId(),
-        // ]);
+        $teamIds = $this->getAllChildTeamsOfUser($this->user);
+
         // $subQuery is the instance of Espo\ORM\Query\Select
         $subQuery = Select::fromRaw([
             'from' => 'EntityTeam',
             'select' => ['entityId'],
             'whereClause' => [
-                'teamId' => ['6532241c5abca9e20']  //TODO: get all child team of this user
+                'teamId' => $teamIds,
+                'deleted' => 0,
+            ],
+        ]);
+
+        $userSubQuery = Select::fromRaw([
+            'from' => 'TeamUser',
+            'select' => ['userId'],
+            'whereClause' => [
+                'teamId' => $teamIds,
+                'deleted' => 0,
             ],
         ]);
 
 
         $queryBuilder->where(Cond::or(
             Cond::equal(Cond::column('assignedUserId'), $currentUserId),
-            Cond::in(Cond::column('id'), $subQuery)
+            Cond::in(Cond::column('id'), $subQuery),
+            Cond::in(Cond::column('assignedUserId'), $userSubQuery)
         ));
 
         // $entityManager = $this->entityManager;
@@ -51,5 +62,20 @@ class Mandatory implements Filter
         // var_dump($subQuery->getWhere());
         // echo $pdoStatement->queryString;
         // die;
+    }
+
+    private function getAllChildTeamsOfUser(User $user): array
+    {
+        $teamIds = [];
+        $teams = $user->get('teams');
+        while ($teams->valid()) {
+            $team = $teams->current();
+            $teamId = $team->getId();
+            $childTeamIds = $this->teamUltis->getAllChildTeamsByTeam($teamId);
+            array_push($teamIds, $teamId, ...$childTeamIds);
+            $teams->next();
+        }
+        $teamIds = array_unique($teamIds);
+        return $teamIds;
     }
 }

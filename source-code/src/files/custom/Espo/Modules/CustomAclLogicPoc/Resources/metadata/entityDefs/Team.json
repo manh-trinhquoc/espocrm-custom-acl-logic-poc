@@ -3,7 +3,7 @@
         "parent": {
             "type": "link"
         },
-        "teams": {
+        "childTeams": {
             "type": "linkMultiple",
             "layoutDetailDisabled": true,
             "layoutMassUpdateDisabled": true,
@@ -18,12 +18,12 @@
     "links": {
         "parent": {
             "type": "belongsTo",
-            "foreign": "teams",
+            "foreign": "childTeams",
             "entity": "Team",
             "audited": false,
             "isCustom": true
         },
-        "teams": {
+        "childTeams": {
             "type": "hasMany",
             "foreign": "parent",
             "entity": "Team",

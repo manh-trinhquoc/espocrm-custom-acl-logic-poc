@@ -5,7 +5,7 @@
     "users": {
         "index": 0
     },
-    "teams": {
+    "childTeams": {
         "index": 1
     }
 }

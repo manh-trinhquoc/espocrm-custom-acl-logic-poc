@@ -3,7 +3,7 @@
         [{
                 "name": "name"
             },
-            null
+            false
         ],
         [{
                 "name": "positionList"

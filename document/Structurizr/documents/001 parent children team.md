@@ -23,5 +23,5 @@
 - User 1 và User 1 1 có quyền tạo và đọc bản ghi cùng team.
 - Contact 1 và Contact 1 1 được gán User 1 và User 1 1 tương ứng.
 - Contact 2 và Contact 2 2 được gán Team 1 và Team 1 1 tương ứng
-- User 1 sẽ xem được toàn bộ 4 Contact
+- User 1 sẽ xem được toàn 4 contact
 - User 1 1 sẽ chỉ xem được Contact 1 1 và Contact 2 2.
