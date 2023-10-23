@@ -71,6 +71,7 @@ class AccessChecker implements AccessEntityCREDSChecker
                 $this->ownershipChecker->checkOwn($user, $entity) ||
                 $this->ownershipChecker->checkTeam($user, $entity);
         }
+        return $this->ownershipChecker->checkOwn($user, $entity);
 
         return $this->defaultAccessChecker->checkEntityRead($user, $entity, $data);
     }
