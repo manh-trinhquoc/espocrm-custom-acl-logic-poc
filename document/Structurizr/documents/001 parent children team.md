@@ -7,7 +7,7 @@
 ## Hướng triển khai chung
 ### Hướng 1
 - mở quyền thao tác với bản ghi là all và dùng hook, custom code ở backend để chặn các thao tác không được phép
-- team sẽ có thêm 1 trường là parent. 
+- team sẽ có thêm 1 trường là parent. Mỗi lần team gán parent cần check nếu gán vòng tròn thì ko cho gán nữa
 - tạo role có quyền thao tác với mọi record của entity và gán cho User
 - Khai báo mandatory filter để lọc ở list. Sử dụng tối đa query builder để tăng hiệu suất
 - selectDefs/ENTITY.json
@@ -34,7 +34,6 @@
     - Ownership checker sẽ check inTeam nếu table có giá trị: Table::LEVEL_TEAM
 
 - Thử tìm hiểu accesscontrolfilterresolverclassname https://docs.espocrm.com/development/metadata/select-defs/#accesscontrolfilterresolverclassname
-
 
 
 
