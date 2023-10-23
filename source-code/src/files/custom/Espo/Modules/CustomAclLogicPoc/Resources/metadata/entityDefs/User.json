@@ -1,0 +1,25 @@
+{
+    "fields": {
+        "fullAccessRoles": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "layoutListDisabled": true,
+            "noLoad": true,
+            "importDisabled": true,
+            "exportDisabled": true,
+            "customizationDisabled": true,
+            "isCustom": true
+        }
+    },
+    "links": {
+        "fullAccessRoles": {
+            "type": "hasMany",
+            "relationName": "userRole",
+            "foreign": "users1",
+            "entity": "Role",
+            "audited": false,
+            "isCustom": true
+        }
+    }
+}

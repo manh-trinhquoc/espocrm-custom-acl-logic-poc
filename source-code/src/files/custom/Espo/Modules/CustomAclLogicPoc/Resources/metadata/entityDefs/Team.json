@@ -1,0 +1,34 @@
+{
+    "fields": {
+        "parent": {
+            "type": "link"
+        },
+        "childTeams": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "layoutListDisabled": true,
+            "noLoad": true,
+            "importDisabled": true,
+            "exportDisabled": true,
+            "customizationDisabled": true,
+            "isCustom": true
+        }
+    },
+    "links": {
+        "parent": {
+            "type": "belongsTo",
+            "foreign": "childTeams",
+            "entity": "Team",
+            "audited": false,
+            "isCustom": true
+        },
+        "childTeams": {
+            "type": "hasMany",
+            "foreign": "parent",
+            "entity": "Team",
+            "audited": false,
+            "isCustom": true
+        }
+    }
+}

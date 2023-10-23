@@ -2,7 +2,7 @@
   "id" : 1,
   "name" : "Espo Plugin",
   "description" : "Description",
-  "lastModifiedDate" : "2023-10-19T08:30:41Z",
+  "lastModifiedDate" : "2023-10-20T03:46:48Z",
   "properties" : {
     "structurizr.dsl" : "d29ya3NwYWNlICJFc3BvIFBsdWdpbiIgewogICAgIWFkcnMgZGVjaXNpb25zCiAgICAhZG9jcyBkb2N1bWVudHMKICAgIG1vZGVsIHsKICAgICAgICAKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgCgogICAgICAgIHRoZW1lIGRlZmF1bHQKCiAgICAgICAgLy8gdGhlbWVzIGh0dHBzOi8vc3RhdGljLnN0cnVjdHVyaXpyLmNvbS90aGVtZXMvbWljcm9zb2Z0LWF6dXJlLTIwMjEuMDEuMjYvdGhlbWUuanNvbgogICAgfQoKfQo="
   },
@@ -10,9 +10,9 @@
   "model" : { },
   "documentation" : {
     "sections" : [ {
-      "content" : "## Overview\n\n- Kết quả record của trường link trả về sẽ được lọc dựa theo giá trị của 1 hoặc nhiều trường khác.\n\nTODO: v0.0.2\n- Xây dựng trường linkConditionalOptions riêng biệt, sử dụng trường này thay thế trường link cần áp dụng điều kiện lọc\n- Điều kiện lọc có thể được cấu hình qua admin giống như condition Option của trường enum\n\n\n## Triển khai\n- người dùng cấu hình sử dụng custom view cho field type loại link ` entityDefs/ENTITY.json `. Trong custom view sẽ can thiệp vào hàm sinh ra url query dữ liệu ở backend.\n```json \n\n    \"fields\": {\n        \"FIELD\": {\n            \"type\": \"link\",\n            \"view\": \"link-condition-options:views/fields/link-condition-options\"\n        }\n    },\n\n```\n- người dùng override hàm ` getModelFilterObjects ` để áp dụng logic thực tế cần thiết\n\nTODO: v0.0.2\n- Người dùng admin tạo field linkConditionalOptions và set các điều kiện lọc theo các trường khác.\n- Admin sẽ phải chọn các cấu hình\n\n| option | description\n| --- | ---\n| originalLinkField | Trường link gốc mà trường này sẽ thay thế\n\n\n\n- người dùng có thể chọn nhiều trường làm điều kiện lọc. Giao diện bắt trước conditional options của trường enum\n\n## Tham khảo\n- Dynamic handler: các option trong dynamic logic https://docs.espocrm.com/development/dynamic-handler/\n- nếu không đủ khả năng tạo dynamic handler, dùng tạm params trong metatada/fields https://docs.espocrm.com/development/metadata/fields/\n- coding rule: https://docs.espocrm.com/development/coding-rules/#11-use-dto-rather-than-associative-arrays-or-stdclass-objects\n",
+      "content" : "## Parent - children team\n\n- Thử triển khai logic team cha - con trên espocrm\n- Nguyên tắc:\n1. user sẽ được thao tác với các bản ghi thuộc team con tương tự như các bản ghi thuộc team mình\n\n## Hướng triển khai chung\n- mở quyền thao tác với bản ghi là all và dùng hook, custom code ở backend để chặn các thao tác không được phép\n- team sẽ có thêm 1 trường là parent. \n- tạo role có quyền thao tác với mọi record của entity và gán cho User\n- User sẽ có thêm 1 trường là fullAccessRoles lưu các role full access ở trên\n- Viết hàm merge acl custom với đầu vào là các role loại trừ các role full access\n- Nếu kết quả là team thì check tiếp logic record có thuộc team con hay không\n\n## Demo quyền đọc contact\n- Team 1 là bố của Team 1 1. Tương ứng là User 1 và User 1 1.\n- User 1 và User 1 1 có quyền tạo và đọc bản ghi cùng team.\n- Contact 1 và Contact 1 1 được gán User 1 và User 1 1 tương ứng.\n- Contact 2 và Contact 2 2 được gán Team 1 và Team 1 1 tương ứng\n- User 1 sẽ xem được toàn bộ 4 Contact\n- User 1 1 sẽ chỉ xem được Contact 1 1 và Contact 2 2.\n",
       "format" : "Markdown",
-      "filename" : "001 overview.md",
+      "filename" : "001 parent children team.md",
       "order" : 1,
       "title" : ""
     } ],
@@ -24,11 +24,11 @@
       "date" : "2023-08-01T00:00:00Z",
       "status" : "Accepted"
     }, {
-      "content" : "# . version 0. 0. 1\n\nDate: 2023-10-18\n\n## Status\n\nAccepted\n\n## Release Note\n- no build file since this plugin is just an idea, it's require coding to re-write function ` getModelFilterObjects ` for real use case logic\n",
+      "content" : "# . version 0. 0. 1\n\nDate: 2023-10-19\n\n## Status\n\nAccepted\n\n## Release Note\n- no build file since this is a proof of concept\n",
       "format" : "Markdown",
       "id" : "1",
       "title" : "version 0. 0. 1",
-      "date" : "2023-10-18T00:00:00Z",
+      "date" : "2023-10-19T00:00:00Z",
       "status" : "Accepted"
     } ]
   },

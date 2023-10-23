@@ -1,0 +1,11 @@
+{
+    "controller": "controllers/team",
+    "relationshipPanels": {
+        "parent": {
+            "layout": null
+        },
+        "childTeams": {
+            "layout": null
+        }
+    }
+}

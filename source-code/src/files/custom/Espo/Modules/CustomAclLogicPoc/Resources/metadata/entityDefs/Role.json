@@ -1,0 +1,25 @@
+{
+    "fields": {
+        "users1": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "layoutListDisabled": true,
+            "noLoad": true,
+            "importDisabled": true,
+            "exportDisabled": true,
+            "customizationDisabled": true,
+            "isCustom": true
+        }
+    },
+    "links": {
+        "users1": {
+            "type": "hasMany",
+            "relationName": "userRole",
+            "foreign": "fullAccessRoles",
+            "entity": "User",
+            "audited": false,
+            "isCustom": true
+        }
+    }
+}

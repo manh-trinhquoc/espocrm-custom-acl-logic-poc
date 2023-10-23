@@ -1,0 +1,11 @@
+{
+    "_delimiter_": {
+        "disabled": true
+    },
+    "users": {
+        "index": 0
+    },
+    "childTeams": {
+        "index": 1
+    }
+}
